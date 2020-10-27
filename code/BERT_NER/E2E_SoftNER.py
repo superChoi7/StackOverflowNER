@@ -16,11 +16,8 @@ import softner_segmenter_preditct_from_file
 import softner_ner_predict_from_file
 
 def read_file(input_file, output_folder):
-
 	info_extractor = Stackoverflow_Info_Extract(output_folder)
-
 	post_id = 0
-
 	for line in open(input_file, encoding='utf-8'):
 		if line.strip()=="":
 			continue
@@ -42,7 +39,6 @@ def merge_all_conll_files(conlll_folder, output_file):
 		file_path = conlll_folder+"/"+file_name
 		for line in open(file_path, encoding='utf-8'):
 			line=line.strip()
-
 			
 			if line=="":
 				fout.write("\n")
@@ -96,8 +92,6 @@ def create_segmenter_input(conll_format_file, segmenter_input_file, ctc_classifi
 
 def create_ner_input(segmenter_output_file, ner_input_file, ctc_classifier, vocab_size, word_to_id, id_to_word, word_to_vec, features):
 	
-
-
 	fout=open(ner_input_file,'w',encoding='utf-8')
 
 	for line in open(segmenter_output_file,encoding='utf-8'):
@@ -130,7 +124,6 @@ def create_ner_input(segmenter_output_file, ner_input_file, ctc_classifier, voca
 def parse_args():
     parser = argparse.ArgumentParser()
 
-
     # Required parameters
     parser.add_argument(
         "--input_file_with_so_body",
@@ -138,63 +131,54 @@ def parse_args():
         type=str,
     )
 
+	# todo: may cause syntax error
     args = parser.parse_args()
-
-    
-
 
     return args
 
 
 def Extract_NER(input_file):
-
+	""" Predict named entity in an article """
 
 	train_file=parameters_ctc['train_file']
 	test_file=parameters_ctc['test_file']
 	
-	ctc_classifier, vocab_size, word_to_id, id_to_word, word_to_vec, features= train_ctc_model(train_file, test_file)
+	# train code recognizer?
+	ctc_classifier, vocab_size, word_to_id, id_to_word, word_to_vec, features = train_ctc_model(train_file, test_file)
 
-
+	# temp file
 	base_temp_dir = "temp_files/"
 	standoff_folder = "temp_files/standoff_files/"
+	# dir of code recognizer
 	conlll_folder = "temp_files/conll_files/"
 	conll_file = "temp_files/conll_format_txt.txt"
-
+	# dir of entity segmenter
 	segmenter_input_file = "temp_files/segmenter_ip.txt"
-
 	segmenter_output_file = "temp_files/segemeter_preds.txt"
-
+	# input features & SoftNER prediction 
 	ner_input_file = "temp_files/ner_ip.txt"
-
 	ner_output_file = "ner_preds.txt"
 
+	# mkdir if not exist
 	if not os.path.exists(base_temp_dir): os.makedirs(base_temp_dir)
 	if not os.path.exists(standoff_folder): os.makedirs(standoff_folder)
 	if not os.path.exists(conlll_folder): os.makedirs(conlll_folder)
-
 	
-	
-	
-
+	# read sentences and tokenize the sentences
 	read_file(input_file, standoff_folder)
-	
+
+	# Code Recognizer
 	convert_standoff_to_conll(standoff_folder, conlll_folder)
 	merge_all_conll_files(conlll_folder, conll_file)
-
 	create_segmenter_input(conll_file, segmenter_input_file, ctc_classifier, vocab_size, word_to_id, id_to_word, word_to_vec, features)
-
+	# Entity Segmenter
 	softner_segmenter_preditct_from_file.predict_segments(segmenter_input_file, segmenter_output_file)
-
 	create_ner_input(segmenter_output_file, ner_input_file, ctc_classifier, vocab_size, word_to_id, id_to_word, word_to_vec, features)
-
+	# recognize named entities
 	softner_ner_predict_from_file.predict_entities(ner_input_file,ner_output_file)
 
-
-	
-
+	# delete temp_files
 	shutil.rmtree(base_temp_dir, ignore_errors=True)
-
-
 
 	
 
@@ -205,7 +189,7 @@ if __name__ == '__main__':
     args = parse_args()
     input_file = args.input_file_with_so_body
     
+	# input file
     input_file = "xml_filted_body.txt"
-
 
     Extract_NER(input_file)
