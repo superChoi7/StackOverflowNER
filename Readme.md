@@ -4,6 +4,8 @@
 
 This work is based on the [paper](https://arxiv.org/pdf/2005.01634.pdf) and the [repository](https://github.com/jeniyat/StackOverflowNER). 
 
+The modified version of `utils_fine_tune` is [here](https://drive.google.com/file/d/1XE7Dp4ipdjQCnT7hlKiqeU3dCUv18SV-/view?usp=sharing).
+
 Please see the details in the [report](https://github.com/superChoi7/StackOverflowNER/blob/master/main.ipynb).
 
 
