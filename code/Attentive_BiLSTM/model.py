@@ -412,6 +412,8 @@ class BiLSTM_CRF(nn.Module):
         if self.use_gpu:
             embeds=embeds.cuda()
             elmo_embeds=embeds.cuda()
+        else:
+            elmo_embeds=embeds
 
         if parameters['use_freq_vector']:
             frequency_embeddings = self.freq_embeds(sentence)

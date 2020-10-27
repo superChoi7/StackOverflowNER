@@ -27,19 +27,19 @@ from collections import Counter
 from torch.optim import lr_scheduler
 
 
-fasttext_model = fasttext.load_model('/data/jeniya/STACKOVERFLOW_DATA/POST_PROCESSED/fasttext_model/fasttext.bin')
+fasttext_model = fasttext.load_model('/root/Project/data/fasttext.bin')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 if device=='cuda':
     torch.set_default_tensor_type('torch.cuda.FloatTensor')
 
 RESOURCES = {
-    "train": "/data/jeniya/STACKOVERFLOW_DATA/CTC/data/train_freq.txt",
-    "gigaword_word": "/data/jeniya/STACKOVERFLOW_DATA/CTC/data/gigaword_gt_2.bin",
-    "gigaword_char": "/data/jeniya/STACKOVERFLOW_DATA/CTC/data/gigaword_char_unique.bin",
-    "stackoverflow_char": "/data/jeniya/STACKOVERFLOW_DATA/CTC/data/no_eng_char_uniq.bin",
-    "stackoverflow_word": "/data/jeniya/STACKOVERFLOW_DATA/CTC/data/words.bin",
-    "cs": "/data/jeniya/STACKOVERFLOW_DATA/CTC/data/sorted_semantic_scholar_words.txt"
+    "train": "/root/Project/data/train_freq.txt",
+    "gigaword_word": "/root/Project/data/gigaword_gt_2.bin",
+    "gigaword_char": "/root/Project/data/gigaword_char_unique.bin",
+    "stackoverflow_char": "/root/Project/data/no_eng_char_uniq.bin",
+    "stackoverflow_word": "/root/Project/data/words.bin",
+    "cs": "/root/Project/data/sorted_semantic_scholar_words.txt"
 }
 
 def eval(predictions, gold_labels, phase):
@@ -61,7 +61,7 @@ def get_word_dict_pre_embeds(train_file, test_file):
     word_to_id={}
     word_to_vec={}
 
-    for line in open(train_file):
+    for line in open(train_file, encoding='utf-8'):
         word=line.split()[0]
         if word not in word_to_id:
             word=word.strip()
@@ -74,7 +74,7 @@ def get_word_dict_pre_embeds(train_file, test_file):
 
 
 
-    for line in open(test_file):
+    for line in open(test_file, encoding='utf-8'):
         word=line.split()[0]
         if word not in word_to_id:
             word=word.strip()
@@ -97,7 +97,7 @@ def get_word_dict_pre_embeds(train_file, test_file):
 
 def popluate_word_id_from_file(file_name, word_to_id):
     list_of_ids=[]
-    for line in open(file_name):
+    for line in open(file_name, encoding='utf-8'):
         word=line.split()[0].strip()
         word_one_hot_vec= np.zeros(len(word_to_id))
         word_id=word_to_id[word]
@@ -191,7 +191,7 @@ def prediction_on_file_input(ctc_input_file, ctc_classifier, vocab_size, word_to
     
     ctc_scores, ctc_preds = ctc_classifier(ctc_features, ctc_x_words)
     preds=[]
-    fp = open("ctc_ops.tsv", "w")
+    fp = open("ctc_ops.tsv", "w", encoding='utf-8')
     # fp.write("token"+"\t"+"true_label"+"\t"+"pred_label"+"\t"+"scores"+"\n")
     for tok, gold, pred, sc in zip(ctc_tokens, ctc_labels, ctc_preds, ctc_scores):
         if rules.IS_NUMBER(tok):
@@ -271,7 +271,7 @@ def train_ctc_model(train_file, test_file):
         
 
         test_scores, test_preds = ctc_classifier(test_features, test_x_words)
-        # eval(test_preds, test_labels, "test")
+        eval(test_preds, test_labels, "test")
 
     return ctc_classifier, vocab_size, word_to_id, id_to_word, word_to_vec, features
 

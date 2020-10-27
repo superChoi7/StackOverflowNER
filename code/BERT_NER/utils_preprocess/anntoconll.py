@@ -371,8 +371,7 @@ def convert_standoff_to_conll(source_directory_ann, output_directory_conll):
     
     options = argparser().parse_args(argv[1:])
 
-
-    # print(options)
+#     print(options)
     # sorce_folder = "checked_annotation/"
     # phase_name="phase_02_05/"
     # input_folder=sorce_folder+phase_name
@@ -408,6 +407,7 @@ def convert_standoff_to_conll(source_directory_ann, output_directory_conll):
 
 
 if __name__ == '__main__':
+    print("hello")
     source_directory_ann = "../temp_files/standoff_files/"
     output_directory_conll = "../temp_files/conll_files/"
     convert_standoff_to_conll(source_directory_ann, output_directory_conll)

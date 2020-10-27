@@ -1,0 +1,278 @@
+nohup: ignoring input
+sh: 1: ./evaluation/conlleval: Permission denied
+sh: 1: ./evaluation/conlleval: Permission denied
+sh: 1: ./evaluation/conlleval: Permission denied
+completed ctc predictions reading 
+set of entities:  ['Class', 'Application', 'Variable', 'User_Interface_Element', 'Code_Block', 'Function', 'Language', 'Library', 'Value', 'Data_Structure', 'Data_Type', 'File_Type', 'File_Name', 'Version', 'HTML_XML_Tag', 'Device', 'Operating_System', 'Website', 'Algorithm']
+------------------------------------------------------------
+Number of questions in  ../../resources/annotated_ner_data/StackOverflow/train_merged_labels.txt  :  741
+Number of answers in  ../../resources/annotated_ner_data/StackOverflow/train_merged_labels.txt  :  897
+Number of sentences in  ../../resources/annotated_ner_data/StackOverflow/train_merged_labels.txt  :  9263
+Number of sentences after merging :  9263
+Max len sentences has 92 words
+------------------------------------------------------------
+------------------------------------------------------------
+Number of questions in  ../../resources/annotated_ner_data/StackOverflow/test_merged_labels.txt  :  249
+Number of answers in  ../../resources/annotated_ner_data/StackOverflow/test_merged_labels.txt  :  315
+Number of sentences in  ../../resources/annotated_ner_data/StackOverflow/test_merged_labels.txt  :  3108
+Number of sentences after merging :  3108
+Max len sentences has 83 words
+------------------------------------------------------------
+Found 3294 unique words (136996 in total)
+Found 108 unique characters
+Found 41 unique named entity tags
+char_mode: CNN, out_channels: 25, hidden_dim: 300, 
+---------epoch count:  1
+-----------------------------------
+now evaluating:  train
+-----------------------------------
+processed 136996 tokens with 11200 phrases; found: 11118 phrases; correct: 8416.
+accuracy:  97.66%; precision:  75.70%; recall:  75.14%; FB1:  75.42
+        Algorithm: precision:   0.00%; recall:   0.00%; FB1:   0.00 foundGuessed:  0
+      Application: precision:  83.91%; recall:  80.35%; FB1:  82.09 foundGuessed:  1243
+            Class: precision:  71.78%; recall:  78.51%; FB1:  74.99 foundGuessed:  1481
+       Code_Block: precision:  72.17%; recall:  60.00%; FB1:  65.53 foundGuessed:  690
+   Data_Structure: precision:  77.19%; recall:  88.66%; FB1:  82.53 foundGuessed:  719
+        Data_Type: precision:  79.50%; recall:  84.45%; FB1:  81.90 foundGuessed:  444
+           Device: precision:  59.31%; recall:  43.22%; FB1:  50.00 foundGuessed:  145
+        File_Name: precision:  75.78%; recall:  82.87%; FB1:  79.17 foundGuessed:  351
+        File_Type: precision:  98.70%; recall:  41.42%; FB1:  58.35 foundGuessed:  154
+         Function: precision:  79.84%; recall:  77.08%; FB1:  78.44 foundGuessed:  754
+     HTML_XML_Tag: precision:  83.61%; recall:  49.51%; FB1:  62.20 foundGuessed:  122
+         Language: precision:  77.53%; recall:  94.70%; FB1:  85.26 foundGuessed:  899
+          Library: precision:  69.68%; recall:  73.37%; FB1:  71.48 foundGuessed:  775
+ Operating_System: precision:  85.07%; recall:  33.33%; FB1:  47.90 foundGuessed:  67
+User_Interface_Element: precision:  84.86%; recall:  81.76%; FB1:  83.28 foundGuessed:  898
+            Value: precision:  88.99%; recall:  68.14%; FB1:  77.18 foundGuessed:  536
+         Variable: precision:  62.60%; recall:  80.46%; FB1:  70.41 foundGuessed:  1441
+          Version: precision:  94.30%; recall:  70.82%; FB1:  80.89 foundGuessed:  193
+          Website: precision:  38.35%; recall:  74.53%; FB1:  50.64 foundGuessed:  206
+-----------------------------------
+now evaluating:  test
+-----------------------------------
+processed 45541 tokens with 3858 phrases; found: 3838 phrases; correct: 2709.
+accuracy:  97.14%; precision:  70.58%; recall:  70.22%; FB1:  70.40
+        Algorithm: precision:   0.00%; recall:   0.00%; FB1:   0.00 foundGuessed:  0
+      Application: precision:  73.62%; recall:  75.43%; FB1:  74.51 foundGuessed:  417
+            Class: precision:  67.24%; recall:  76.47%; FB1:  71.56 foundGuessed:  580
+       Code_Block: precision:  67.43%; recall:  58.28%; FB1:  62.52 foundGuessed:  261
+   Data_Structure: precision:  84.41%; recall:  89.88%; FB1:  87.06 foundGuessed:  263
+        Data_Type: precision:  84.21%; recall:  86.49%; FB1:  85.33 foundGuessed:  114
+           Device: precision:  51.43%; recall:  33.96%; FB1:  40.91 foundGuessed:  35
+        File_Name: precision:  80.77%; recall:  77.30%; FB1:  79.00 foundGuessed:  156
+        File_Type: precision:  93.33%; recall:  32.56%; FB1:  48.28 foundGuessed:  45
+         Function: precision:  72.57%; recall:  61.65%; FB1:  66.67 foundGuessed:  226
+     HTML_XML_Tag: precision:  61.29%; recall:  36.54%; FB1:  45.78 foundGuessed:  31
+         Language: precision:  69.55%; recall:  85.96%; FB1:  76.88 foundGuessed:  220
+          Library: precision:  65.66%; recall:  67.70%; FB1:  66.67 foundGuessed:  265
+ Operating_System: precision:  91.18%; recall:  46.97%; FB1:  62.00 foundGuessed:  34
+User_Interface_Element: precision:  77.05%; recall:  79.44%; FB1:  78.22 foundGuessed:  366
+            Value: precision:  87.26%; recall:  62.84%; FB1:  73.07 foundGuessed:  157
+         Variable: precision:  53.92%; recall:  72.75%; FB1:  61.94 foundGuessed:  510
+          Version: precision:  87.50%; recall:  69.37%; FB1:  77.39 foundGuessed:  88
+          Website: precision:  28.57%; recall:  51.28%; FB1:  36.70 foundGuessed:  70
+
+
+
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Precision & Recall & F1\\
+\hline
+Class & 67.24 & 76.47 & 71.56\\
+Application & 73.62 & 75.43 & 74.51\\
+Variable & 53.92 & 72.75 & 61.94\\
+User Interface Element & 77.05 & 79.44 & 78.22\\
+Code Block & 67.43 & 58.28 & 62.52\\
+Function & 72.57 & 61.65 & 66.67\\
+Language & 69.55 & 85.96 & 76.88\\
+Library & 65.66 & 67.7 & 66.67\\
+Value & 87.26 & 62.84 & 73.07\\
+Data Structure & 84.41 & 89.88 & 87.06\\
+Data Type & 84.21 & 86.49 & 85.33\\
+File Type & 93.33 & 32.56 & 48.28\\
+File Name & 80.77 & 77.3 & 79.0\\
+Version & 87.5 & 69.37 & 77.39\\
+HTML XML Tag & 61.29 & 36.54 & 45.78\\
+Device & 51.43 & 33.96 & 40.91\\
+Operating System & 91.18 & 46.97 & 62.0\\
+Website & 28.57 & 51.28 & 36.7\\
+Algorithm & 0 & 0.0 & 0\\
+overall & 70.58 & 70.22 & 70.4\\
+\hline
+\end{tabular}
+\caption{}
+\end{table}
+
+
+
+
+-----------------------------------
+time in this epoch:  21775.404473781586 secs
+---------epoch count:  2
+-----------------------------------
+now evaluating:  train
+-----------------------------------
+processed 136996 tokens with 11200 phrases; found: 11144 phrases; correct: 9226.
+accuracy:  98.35%; precision:  82.79%; recall:  82.38%; FB1:  82.58
+        Algorithm: precision:  83.33%; recall:  12.20%; FB1:  21.28 foundGuessed:  6
+      Application: precision:  81.43%; recall:  89.21%; FB1:  85.15 foundGuessed:  1422
+            Class: precision:  84.33%; recall:  73.93%; FB1:  78.79 foundGuessed:  1187
+       Code_Block: precision:  74.84%; recall:  69.88%; FB1:  72.27 foundGuessed:  775
+   Data_Structure: precision:  75.16%; recall:  94.25%; FB1:  83.63 foundGuessed:  785
+        Data_Type: precision:  87.97%; recall:  89.23%; FB1:  88.60 foundGuessed:  424
+           Device: precision:  90.91%; recall:  75.38%; FB1:  82.42 foundGuessed:  165
+        File_Name: precision:  86.14%; recall:  89.10%; FB1:  87.60 foundGuessed:  332
+        File_Type: precision:  91.24%; recall:  82.29%; FB1:  86.53 foundGuessed:  331
+         Function: precision:  80.15%; recall:  84.25%; FB1:  82.15 foundGuessed:  821
+     HTML_XML_Tag: precision:  78.45%; recall:  68.93%; FB1:  73.39 foundGuessed:  181
+         Language: precision:  90.18%; recall:  96.06%; FB1:  93.03 foundGuessed:  784
+          Library: precision:  82.67%; recall:  73.23%; FB1:  77.67 foundGuessed:  652
+ Operating_System: precision:  82.53%; recall:  80.12%; FB1:  81.31 foundGuessed:  166
+User_Interface_Element: precision:  92.58%; recall:  81.65%; FB1:  86.77 foundGuessed:  822
+            Value: precision:  88.64%; recall:  79.14%; FB1:  83.62 foundGuessed:  625
+         Variable: precision:  74.07%; recall:  86.62%; FB1:  79.85 foundGuessed:  1311
+          Version: precision:  88.26%; recall:  90.66%; FB1:  89.44 foundGuessed:  264
+          Website: precision:  86.81%; recall:  74.53%; FB1:  80.20 foundGuessed:  91
+-----------------------------------sh: 1: ./evaluation/conlleval: Permission denied
+
+now evaluating:  test
+-----------------------------------
+processed 45541 tokens with 3858 phrases; found: 3851 phrases; correct: 2886.
+accuracy:  97.59%; precision:  74.94%; recall:  74.81%; FB1:  74.87
+        Algorithm: precision:   0.00%; recall:   0.00%; FB1:   0.00 foundGuessed:  1
+      Application: precision:  72.44%; recall:  85.26%; FB1:  78.33 foundGuessed:  479
+            Class: precision:  77.07%; recall:  69.22%; FB1:  72.93 foundGuessed:  458
+       Code_Block: precision:  62.50%; recall:  62.91%; FB1:  62.71 foundGuessed:  304
+   Data_Structure: precision:  77.89%; recall:  92.71%; FB1:  84.66 foundGuessed:  294
+        Data_Type: precision:  88.89%; recall:  86.49%; FB1:  87.67 foundGuessed:  108
+           Device: precision:  73.47%; recall:  67.92%; FB1:  70.59 foundGuessed:  49
+        File_Name: precision:  91.61%; recall:  80.37%; FB1:  85.62 foundGuessed:  143
+        File_Type: precision:  91.92%; recall:  70.54%; FB1:  79.82 foundGuessed:  99
+         Function: precision:  68.29%; recall:  73.68%; FB1:  70.89 foundGuessed:  287
+     HTML_XML_Tag: precision:  68.29%; recall:  53.85%; FB1:  60.22 foundGuessed:  41
+         Language: precision:  81.58%; recall:  87.08%; FB1:  84.24 foundGuessed:  190
+          Library: precision:  70.04%; recall:  64.59%; FB1:  67.21 foundGuessed:  237
+ Operating_System: precision:  92.19%; recall:  89.39%; FB1:  90.77 foundGuessed:  64
+User_Interface_Element: precision:  84.91%; recall:  76.06%; FB1:  80.24 foundGuessed:  318
+            Value: precision:  83.15%; recall:  67.89%; FB1:  74.75 foundGuessed:  178
+         Variable: precision:  60.09%; recall:  73.28%; FB1:  66.03 foundGuessed:  461
+          Version: precision:  82.05%; recall:  86.49%; FB1:  84.21 foundGuessed:  117
+          Website: precision:  78.26%; recall:  46.15%; FB1:  58.06 foundGuessed:  23
+Traceback (most recent call last):
+  File "train_so.py", line 646, in <module>
+    train_model(model, step_lr_scheduler, optimizer, train_data, dev_data, test_data)
+  File "train_so.py", line 541, in train_model
+    best_dev_F, new_dev_F, save = evaluating(model, dev_data, best_dev_F, epoch, phase_name) 
+  File "train_so.py", line 396, in evaluating
+    print_result.print_result(eval_result, epoch_count, parameters["sorted_entity_list_file_name"], parameters["entity_category_code"], parameters["entity_category_human_language"])
+  File "/root/Project/StackOverflowNER/code/Attentive_BiLSTM/print_result.py", line 17, in print_result
+    with open(sorted_entity_list_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sorted_entity_list_by_count_all.json'
+.59\\
+Operating System & 92.19 & 89.39 & 90.77\\
+Website & 78.26 & 46.15 & 58.06\\
+Algorithm & 0.0 & 0.0 & 0\\
+overall & 74.94 & 74.81 & 74.87\\
+\hline
+\end{tabular}
+\caption{}
+\end{table}
+
+
+
+
+-----------------------------------
+time in this epoch:  15856.095844984055 secs
+---------epoch count:  3
+-----------------------------------
+now evaluating:  train
+-----------------------------------
+processed 136996 tokens with 11200 phrases; found: 11093 phrases; correct: 9688.
+accuracy:  98.76%; precision:  87.33%; recall:  86.50%; FB1:  86.92
+        Algorithm: precision:  80.95%; recall:  41.46%; FB1:  54.84 foundGuessed:  21
+      Application: precision:  82.34%; recall:  93.07%; FB1:  87.38 foundGuessed:  1467
+            Class: precision:  83.71%; recall:  84.27%; FB1:  83.99 foundGuessed:  1363
+       Code_Block: precision:  79.26%; recall:  80.12%; FB1:  79.69 foundGuessed:  839
+   Data_Structure: precision:  85.74%; recall:  93.13%; FB1:  89.28 foundGuessed:  680
+        Data_Type: precision:  92.24%; recall:  93.78%; FB1:  93.00 foundGuessed:  425
+           Device: precision:  91.67%; recall:  82.91%; FB1:  87.07 foundGuessed:  180
+        File_Name: precision:  91.77%; recall:  93.77%; FB1:  92.76 foundGuessed:  328
+        File_Type: precision:  89.81%; recall:  91.28%; FB1:  90.54 foundGuessed:  373
+         Function: precision:  87.82%; recall:  83.99%; FB1:  85.86 foundGuessed:  747
+     HTML_XML_Tag: precision:  94.94%; recall:  72.82%; FB1:  82.42 foundGuessed:  158
+         Language: precision:  96.19%; recall:  92.53%; FB1:  94.32 foundGuessed:  708
+          Library: precision:  88.97%; recall:  66.85%; FB1:  76.34 foundGuessed:  553
+ Operating_System: precision:  80.63%; recall:  90.06%; FB1:  85.08 foundGuessed:  191
+User_Interface_Element: precision:  90.83%; recall:  92.49%; FB1:  91.65 foundGuessed:  949
+            Value: precision:  93.58%; recall:  85.43%; FB1:  89.32 foundGuessed:  639
+         Variable: precision:  85.05%; recall:  86.80%; FB1:  85.92 foundGuessed:  1144
+          Version: precision:  95.49%; recall:  90.66%; FB1:  93.01 foundGuessed:  244
+          Website: precision:  97.62%; recall:  77.36%; FB1:  86.32 foundGuessed:  84
+-----------------------------------
+now evaluating:  test
+-----------------------------------
+processed 45541 tokens with 3858 phrases; found: 3834 phrases; correct: 2806.
+accuracy:  97.38%; precision:  73.19%; recall:  72.73%; FB1:  72.96
+        Algorithm: precision:  33.33%; recall:   6.25%; FB1:  10.53 foundGuessed:  3
+      Application: precision:  68.05%; recall:  88.45%; FB1:  76.92 foundGuessed:  529
+            Class: precision:  69.50%; recall:  68.82%; FB1:  69.16 foundGuessed:  505
+       Code_Block: precision:  57.61%; recall:  58.94%; FB1:  58.27 foundGuessed:  309
+   Data_Structure: precision:  84.36%; recall:  83.00%; FB1:  83.67 foundGuessed:  243
+        Data_Type: precision:  82.76%; recall:  86.49%; FB1:  84.58 foundGuessed:  116
+           Device: precision:  69.09%; recall:  71.70%; FB1:  70.37 foundGuessed:  55
+        File_Name: precision:  86.08%; recall:  83.44%; FB1:  84.74 foundGuessed:  158
+        File_Type: precision:  86.24%; recall:  72.87%; FB1:  78.99 foundGuessed:  109
+         Function: precision:  76.21%; recall:  65.04%; FB1:  70.18 foundGuessed:  227
+     HTML_XML_Tag: precision:  64.44%; recall:  55.77%; FB1:  59.79 foundGuessed:  45
+         Language: precision:  85.03%; recall:  79.78%; FB1:  82.32 foundGuessed:  167
+          Library: precision:  74.85%; recall:  48.64%; FB1:  58.96 foundGuessed:  167
+ Operating_System: precision:  78.21%; recall:  92.42%; FB1:  84.72 foundGuessed:  78
+User_Interface_Element: precision:  77.78%; recall:  80.85%; FB1:  79.28 foundGuessed:  369
+            Value: precision:  80.11%; recall:  68.35%; FB1:  73.76 foundGuessed:  186
+         Variable: precision:  60.14%; recall:  70.63%; FB1:  64.96 foundGuessed:  444
+          Version: precision:  91.35%; recall:  85.59%; FB1:  88.37 foundGuessed:  104
+          Website: precision:  95.00%; recall:  48.72%; FB1:  64.41 foundGuessed:  20
+
+
+
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & Precision & Recall & F1\\
+\hline
+Class & 69.5 & 68.82 & 69.16\\
+Application & 68.05 & 88.45 & 76.92\\
+Variable & 60.14 & 70.63 & 64.96\\
+User Interface Element & 77.78 & 80.85 & 79.28\\
+Code Block & 57.61 & 58.94 & 58.27\\
+Function & 76.21 & 65.04 & 70.18\\
+Language & 85.03 & 79.78 & 82.32\\
+Library & 74.85 & 48.64 & 58.96\\
+Value & 80.11 & 68.35 & 73.76\\
+Data Structure & 84.36 & 83.0 & 83.67\\
+Data Type & 82.76 & 86.49 & 84.58\\
+File Type & 86.24 & 72.87 & 78.99\\
+File Name & 86.08 & 83.44 & 84.74\\
+Version & 91.35 & 85.59 & 88.37\\
+HTML XML Tag & 64.44 & 55.77 & 59.79\\
+Device & 69.09 & 71.7 & 70.37\\
+Operating System & 78.21 & 92.42 & 84.72\\
+Website & 95.0 & 48.72 & 64.41\\
+Algorithm & 33.33 & 6.25 & 10.53\\
+overall & 73.19 & 72.73 & 72.96\\
+\hline
+\end{tabular}
+\caption{}
+\end{table}
+
+
+
+
+-----------------------------------
+time in this epoch:  21970.68362045288 secs
+total time in training:  51424.883888959885

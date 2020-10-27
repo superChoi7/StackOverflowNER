@@ -3,8 +3,8 @@ parameters_ctc = {}
 
 
 
-parameters_ctc['train_file']="/data/jeniya/STACKOVERFLOW_DATA/CTC/data/train_updated.tsv"
-parameters_ctc['test_file']="/data/jeniya/STACKOVERFLOW_DATA/CTC/data/test_updated.tsv"
+parameters_ctc['train_file']="/root/Project/data/train_updated.tsv"
+parameters_ctc['test_file']="/root/Project/data/test_updated.tsv"
 
 
 parameters_ctc['LR']=0.0015

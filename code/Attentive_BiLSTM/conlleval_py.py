@@ -316,7 +316,7 @@ def evaluate(correctChunk, foundGuessed, foundCorrect, correctTags, tokenCounter
         print("Overall &  %6.2f & %6.2f & %6.2f & %d & %d & %d  \\\\\\hline" %
               (precision,recall,FB1, correctChunkSum, foundGuessedSum, foundCorrectSum))
     if to_tsv:
-        fout_tsv=open(tsv_file_name,"w")
+        fout_tsv=open(tsv_file_name,"w",encoding="utf-8")
         opline=""+"\t"+"Precision"+"\t"+"Recall"+"\t"+"F1"+"\n"
         fout_tsv.write(opline)
         for i in sortedTypes:

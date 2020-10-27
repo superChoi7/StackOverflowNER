@@ -2,7 +2,7 @@ import optparse
 import argparse
 from collections import OrderedDict
 import torch 
-import utils_so as utils
+# import utils_so as utils
 import os
 
 
@@ -227,6 +227,10 @@ parser.add_argument(
     type=int, help='whether or not to ues HAN networkd'
 )
 
+
+import sys
+sys.argv=['']
+del sys
 
 opts = parser.parse_args()
 # print(args.char_mode)

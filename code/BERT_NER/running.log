@@ -1,0 +1,12 @@
+nohup: ignoring input
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+Traceback (most recent call last):
+  File "E2E_SoftNER.py", line 8, in <module>
+    from utils_ctc.prediction_ctc import *
+  File "/root/Project/StackOverflowNER/code/BERT_NER/utils_ctc/prediction_ctc.py", line 30, in <module>
+    fasttext_model = fasttext.load_model('/root/Project/data/fasttext.bin')
+  File "/opt/conda/envs/py36/lib/python3.6/site-packages/fasttext/FastText.py", line 441, in load_model
+    return _FastText(model_path=path)
+  File "/opt/conda/envs/py36/lib/python3.6/site-packages/fasttext/FastText.py", line 98, in __init__
+    self.f.loadModel(model_path)
+MemoryError: std::bad_alloc

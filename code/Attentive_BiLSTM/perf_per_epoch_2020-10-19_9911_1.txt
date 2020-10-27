@@ -1,0 +1,3 @@
+test: epoch: 1 P: 70.58 R: 70.22 F1: 70.4
+test: epoch: 2 P: 74.94 R: 74.81 F1: 74.87
+test: epoch: 3 P: 73.19 R: 72.73 F1: 72.96

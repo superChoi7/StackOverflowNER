@@ -347,9 +347,9 @@ def Merge_Label(inputFile):
     merging_dict["Organization"]="Website"
 
     modified_file=inputFile[:-4]+"_merged_labels.txt"
-    Fout=open(modified_file,"w")
+    Fout=open(modified_file,"w",encoding='utf-8')
     line_count=0
-    for line in open(inputFile):
+    for line in open(inputFile,encoding='utf-8'):
         line_count+=1
         # print("line: in Merge_Label: utils_so:  ",line)
         # print(inputFile,":", line_count)
@@ -421,7 +421,7 @@ class Sort_Entity_by_Count:
 
 
         list_keys= [x[0] for x in train_result["label_phrase_counter"].most_common()]
-        with open(output_file, 'w') as outfile:
+        with open(output_file, 'w', encoding='utf-8') as outfile:
             json.dump(list_keys, outfile)
 
 
@@ -465,7 +465,7 @@ class Sort_Entity_by_Count:
         count_question=0
         count_answer=0
 
-        for line in open(ip_file):
+        for line in open(ip_file, encoding='utf-8'):
             #print(line)
             if line.startswith("Question_ID"):
                 #print(line)

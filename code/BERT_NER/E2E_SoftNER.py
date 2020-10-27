@@ -21,7 +21,7 @@ def read_file(input_file, output_folder):
 
 	post_id = 0
 
-	for line in open(input_file):
+	for line in open(input_file, encoding='utf-8'):
 		if line.strip()=="":
 			continue
 		post_id+=1
@@ -33,14 +33,14 @@ def read_file(input_file, output_folder):
 
 
 def merge_all_conll_files(conlll_folder, output_file):
-	fout = open(output_file,'w')
+	fout = open(output_file,'w', encoding='utf-8')
 
 	list_of_text_files = [f for f in os.listdir(conlll_folder) if f.endswith('.txt')]
 	# print(list_of_text_files)
 
 	for file_name in sorted(list_of_text_files):
 		file_path = conlll_folder+"/"+file_name
-		for line in open(file_path):
+		for line in open(file_path, encoding='utf-8'):
 			line=line.strip()
 
 			
@@ -66,9 +66,9 @@ def create_segmenter_input(conll_format_file, segmenter_input_file, ctc_classifi
 	
 
 
-	fout=open(segmenter_input_file,'w')
+	fout=open(segmenter_input_file,'w', encoding='utf-8')
 
-	for line in open(conll_format_file):
+	for line in open(conll_format_file, encoding='utf-8'):
 		if line.strip()=="":
 			fout.write("\n")
 			continue
@@ -98,9 +98,9 @@ def create_ner_input(segmenter_output_file, ner_input_file, ctc_classifier, voca
 	
 
 
-	fout=open(ner_input_file,'w')
+	fout=open(ner_input_file,'w',encoding='utf-8')
 
-	for line in open(segmenter_output_file):
+	for line in open(segmenter_output_file,encoding='utf-8'):
 		if line.strip()=="":
 			fout.write("\n")
 			continue
@@ -195,17 +195,17 @@ def Extract_NER(input_file):
 	shutil.rmtree(base_temp_dir, ignore_errors=True)
 
 
-if __name__ == '__main__':
-
-	args = parse_args()
-	input_file = args.input_file_with_so_body
-
-	input_file = "xml_filted_body.txt"
-
-
-	Extract_NER(input_file)
 
 	
 
+if __name__ == '__main__':
+    import sys
+    sys.argv=['']
+    del sys
+    args = parse_args()
+    input_file = args.input_file_with_so_body
+    
+    input_file = "xml_filted_body.txt"
 
 
+    Extract_NER(input_file)

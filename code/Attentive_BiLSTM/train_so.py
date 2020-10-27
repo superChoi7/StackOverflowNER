@@ -89,7 +89,7 @@ def save_char_embed(sentence_words, char_embed_dict, char_embed_vectors):
 
 def read_ctc_pred_file():
     ctc_pred_dict = {}
-    for line in open(parameters["ctc_pred"]):
+    for line in open(parameters["ctc_pred"], encoding='utf-8'):
         if line.strip()=="":
             continue
         line_values= line.strip().split("\t")
@@ -129,7 +129,7 @@ def prepare_train_set_dev_data():
     
     Sort_Entity_by_Count(input_train_file,parameters["sorted_entity_list_file_name"])
 
-    with open(parameters["sorted_entity_list_file_name"]) as f:
+    with open(parameters["sorted_entity_list_file_name"], encoding='utf-8') as f:
         sorted_entity_list = json.load(f)
 
     set_of_selected_tags=[]
@@ -219,7 +219,7 @@ def prepare_train_set_dev_data():
     test_data = loader.prepare_dataset(test_sentences, word_to_id, char_to_id, tag_to_id,ctc_pred_dict, lower)
 
     all_freq_embed={}
-    for line in open(parameters['freq_vector_file']):
+    for line in open(parameters['freq_vector_file'], encoding='utf-8'):
             # print(line)
             s = line.strip().split()
             if len(s) == parameters['freq_dim'] + 1:
@@ -298,7 +298,7 @@ def prepare_train_set_dev_data():
 
 
 def evaluating(model, datas, best_F, epoch_count, phase_name):
-    fout_per_epoch = open(parameters["perf_per_epoch_file"],'a')
+    fout_per_epoch = open(parameters["perf_per_epoch_file"],'a', encoding='utf-8')
     print("-----------------------------------")
     print("now evaluating: ",phase_name)
     print("-----------------------------------")
@@ -369,7 +369,7 @@ def evaluating(model, datas, best_F, epoch_count, phase_name):
     scoref = parameters["eval_temp"] + '/score.' + phase_name+"_"+str(epoch_count)
 
 
-    with open(predf, 'w') as f:
+    with open(predf, 'w', encoding='utf-8') as f:
         f.write('\n'.join(prediction))
 
     eval_result = conlleval_py.evaluate_conll_file(inputFile=predf)
@@ -421,7 +421,8 @@ def train_model(model, step_lr_scheduler, optimizer, train_data, dev_data, test_
 
     model.train(True)
     start = time.time()
-    for epoch in range(1, parameters["epochs"]+1):
+#     for epoch in range(1, parameters["epochs"]+1):
+    for epoch in range(1, 4):
         
         print("---------epoch count: ", epoch)
         for i, index in enumerate(np.random.permutation(len(train_data))):
@@ -585,7 +586,7 @@ if __name__ == '__main__':
         pass
 
 
-    fout_per_epoch = open(parameters["perf_per_epoch_file"],'w')
+    fout_per_epoch = open(parameters["perf_per_epoch_file"],'w', encoding='utf-8')
     fout_per_epoch.close()
 
     if not os.path.isfile(eval_script):

@@ -43,7 +43,7 @@ def load_sentences_so(path, lower, zeros, merge_tag,set_of_selected_tags):
 
     sentence = [] #list of words in the current sentence in formate each word list looks like [word, markdow tag name, mark down tag, NER tag]
     max_len = 0
-    for line in open(path):
+    for line in open(path,encoding='utf-8'):
         if line.startswith("Question_ID"):
             count_question+=1
 
@@ -134,7 +134,7 @@ def load_sentences_so_w_pred(path_main_file, path_segmenter_pred_file,  lower, z
 
     sentence = [] #list of words in the current sentence in formate each word list looks like [word, markdow tag name, mark down tag, NER tag]
 
-    for line in open(path):
+    for line in open(path, encoding='utf-8'):
         if line.startswith("Question_ID"):
             count_question+=1
 
@@ -208,7 +208,7 @@ def load_sentences_so_w_pred(path_main_file, path_segmenter_pred_file,  lower, z
     sentences_preds = []
     sentence_pred = []
     
-    for line in open(path_segmenter_pred_file):
+    for line in open(path_segmenter_pred_file, encoding='utf-8'):
         if line.strip()=="":
             if len(sentence_pred) > 0:
                 sentences_preds.append(sentence_pred)

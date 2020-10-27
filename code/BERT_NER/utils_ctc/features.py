@@ -4,7 +4,6 @@ from os.path import dirname
 from sys import path as sys_path
 
 
-
 # assume script in brat tools/ directory, extend path to find sentencesplit.py
 sys_path.append(path_join(dirname(__file__), '.'))
 
@@ -74,7 +73,7 @@ class Features:
         words = []
         labels = []
         features = []
-        for line in open(file_name):
+        for line in open(file_name, encoding='utf-8'):
             tokens = line.strip().split("\t")
             if (len(tokens))!=2: continue
             label_val = int(tokens[1]) 

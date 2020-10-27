@@ -265,6 +265,9 @@ def evaluate(args, model, tokenizer, labels, pad_token_label_id, mode, prefix=""
                 inputs["token_type_ids"] = (
                     batch[2] if args.model_type in ["bert", "xlnet"] else None
                 )  # XLM and RoBERTa don"t use segment_ids
+            print(args)
+            print(path)
+            print(inputs)
             outputs = model(**inputs)
             tmp_eval_loss, logits = outputs[:2]
 
@@ -621,13 +624,13 @@ def predict_entities(input_file,output_prediction_file):
     # print(len(predictions[0]))
     # Save results on test
     output_test_results_file = os.path.join(args.output_dir, "test_results.txt")
-    with open(output_test_results_file, "w") as writer:
+    with open(output_test_results_file, "w", encoding='utf-8') as writer:
         for key in sorted(result.keys()):
             writer.write("{} = {}\n".format(key, str(result[key])))
     # Save predictions
     output_test_predictions_file = output_prediction_file
-    with open(output_test_predictions_file, "w") as writer:
-        with open(input_file, "r") as f:
+    with open(output_test_predictions_file, "w", encoding='utf-8') as writer:
+        with open(input_file, "r", encoding='utf-8') as f:
             example_id = 0
             for line in f:
                 if line.startswith("-DOCSTART-") or line == "" or line == "\n":

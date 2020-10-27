@@ -296,6 +296,8 @@ def evaluate(args, model, tokenizer, labels, pad_token_label_id, mode, prefix=""
             if out_label_ids[i, j] != pad_token_label_id:
                 out_label_list[i].append(label_map[out_label_ids[i][j]])
                 preds_list[i].append(label_map[preds[i][j]])
+#                 preds_list[i].append(label_map.get(preds[i][j]))
+    print(out_label_list, preds_list)
 
     results = {
         "precision": precision_score(out_label_list, preds_list),
@@ -612,7 +614,7 @@ def predict_segments(input_file,output_prediction_file):
     #     cache_dir=args.cache_dir if args.cache_dir else None,
     #     **tokenizer_args,
     # )
-    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path,cache_dir=args.cache_dir if args.cache_dir else None,**tokenizer_args)
+    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path,cache_dir=args.cache_dir if args.cache_dir else None,**tokenizer_args)  
     model = AutoModelForTokenClassification_Seg.from_pretrained(
         args.model_name_or_path,
         from_tf=bool(".ckpt" in args.model_name_or_path),
@@ -637,13 +639,13 @@ def predict_segments(input_file,output_prediction_file):
     
     result, predictions = evaluate(args, model, tokenizer, labels, pad_token_label_id, mode="", path=input_file)
     output_test_results_file =  "temp_results.txt"
-    with open(output_test_results_file, "w") as writer:
+    with open(output_test_results_file, "w", encoding='utf-8') as writer:
         for key in sorted(result.keys()):
             writer.write("{} = {}\n".format(key, str(result[key])))
     # Save predictions
     output_test_predictions_file = output_prediction_file
-    with open(output_test_predictions_file, "w") as writer:
-        with open(input_file, "r") as f:
+    with open(output_test_predictions_file, "w", encoding='utf-8') as writer:
+        with open(input_file, "r", encoding='utf-8') as f:
             example_id = 0
             for line in f:
                 if line.startswith("-DOCSTART-") or line == "" or line == "\n":
