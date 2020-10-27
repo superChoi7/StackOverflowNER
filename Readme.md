@@ -1,6 +1,6 @@
 # ECE-GY-6143 Machine Learning Final Project
 
-##Code and Named Entity Recognition on StackOverﬂow
+## Code and Named Entity Recognition on StackOverﬂow
 
 This work is based on the [paper](https://arxiv.org/pdf/2005.01634.pdf) and the [repository](https://github.com/jeniyat/StackOverflowNER). 
 
