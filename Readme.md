@@ -1,4 +1,14 @@
-# Dataset and Model for Fine-grained Software Entity Extraction
+# ECE-GY-6143 Machine Learning Final Project
+
+##Code and Named Entity Recognition on StackOverﬂow
+
+This work is based on the [paper](https://arxiv.org/pdf/2005.01634.pdf) and the [repository](https://github.com/jeniyat/StackOverflowNER). 
+
+Please see the details in the [report](https://github.com/superChoi7/StackOverflowNER/blob/master/main.ipynb).
+
+
+
+## Dataset and Model for Fine-grained Software Entity Extraction
 
 This repository contains all the code and data proposed in the paper:  **Code and Named Entity Recognition in  StackOverflow. (ACL 2020)**.  [[Paper PDF](https://arxiv.org/pdf/2005.01634.pdf)]
 

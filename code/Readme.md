@@ -1,11 +1,10 @@
-# Running BERT NER Model:
+# Running BERT_NER Model:
 
 ## Prerequisitie:
-1. Install the modified version of [huggingface transformers](https://github.com/lanwuwei/BERTOverflow). This respository contains all the necessary modification we made in the to adapt the `BertTokenClassifier` with embedding level attention.
-
+1. Install the modified version of [huggingface transformers](https://github.com/jeniyat/Huggingface_SoftNER). This respository contains all the necessary modification we made in the to adapt the `BertTokenClassifier` with embedding level attention.
 2. Download the [utils_fine_tune.zip](https://mega.nz/file/bRp3lTBY#lHamCVxeVr6wfsdjFpgqimvWZ5vJoeRyoaU40-7pl5c) and unzip inside `BERT_NER`.
-
 3. Download the [data_ctc.zip](https://mega.nz/file/DVYUkATS#DqDKlYPT2zfXSaAy5oTvolNrBLJzS5bRV5m_m3qUreU) and unzip. Update the `parameters_ctc['RESOURCES_base_directory']` path with the abosolute path of the unzipped folder. The `parameters_ctc['RESOURCES_base_directory']` is defined inside the `utils_ctc/config_ctc.py` file.
+4. Update `RESOURCES` in the `utils_ctc/prediction_ctc.py`.
 
 
 ## Extract the prediction on a new input file:
@@ -19,11 +18,10 @@ To extract the software entities from a given file run the following:
 - It will save the predictions on the input file at `ner_preds.txt`
 
 
-## Replicate the reported results:
 
+# Replicate the reported results:
 
-
-# Running Attentive-BiLSTM NER Model:
+## Running Attentive-BiLSTM NER Model:
 
 Downlaod all the pretrained in-domain word vectors and put them in the `resources/pretrained_word_vectors/`.
 
@@ -53,7 +51,7 @@ By default this code base will run on GPU ID `0`. You can change the gpu id by t
 ```
 
 
-# Loading the annotated files:
+## Loading the annotated files:
 
 To read the dataset only use the loader_so.py file from `DataReader` folder as below:
 
@@ -103,7 +101,7 @@ By default the `loader_so_text` function will convert the 5 low frequency enttiy
  
 ```
 
-# Run the Tokenizer:
+## Run the Tokenizer:
 
 To tokenized the code-mixed texts from StackOverflow utilized the source codes insides the `SOTokenizer` folder as below:
 
